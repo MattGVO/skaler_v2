@@ -1,0 +1,53 @@
+@import '../../Vars';
+
+.Home {
+    @extend %flex-column;
+    @extend %center-center;
+    box-sizing: border-box;
+    padding: 12vh 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Flip{
+    @extend %flex-column;
+    justify-content: center;
+    text-align: center;
+    color: #173529;
+}
+
+.Flip-Demo{
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+.Flip-Demo i{
+    margin: 0 25px;
+    font-size: 64px;
+}
+
+.Side{
+    transform: rotate(90deg);
+}
+
+@media (max-width: 567px){
+    .Fretboard{
+        display: none;
+    }
+}
+
+@media (min-width: 568px){
+    .Flip{
+        display: none;
+    }
+}
+
+@media (max-height: 320px){
+    .Home{
+        align-items: flex-start;
+    }
+}
+

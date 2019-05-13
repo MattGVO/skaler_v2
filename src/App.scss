@@ -1,0 +1,62 @@
+@import './Components/Fretboard/Fretboard.scss';
+@import './Components/Header/Header.scss';
+@import './Components/Login/Login';
+@import './Components/String/String.scss';
+@import './Components/Welcome/Welcome';
+@import './Views/Home/Home';
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    margin: 10px;
+    background: none;
+    border-color: $background;
+    border-style: solid;
+    border-radius: 5px;
+    color: $background;
+    width: 100px;
+    height: 32px;
+    transition: all .25s;
+  }
+  
+  button:hover {
+    background: $background;
+    color: #173529;
+  }
+  
+  button:active {
+    background: orange;
+    border-color: orange;
+    color: $background;
+  }
+  
+  button:focus {
+    outline: 0;
+  }
+  
+  select{
+    cursor: pointer;
+    border-color: $text;
+    color: $text;
+    background: $lightBG;
+    text-align: center;
+    text-align-last: center;
+  }
+  
+  select:focus{
+      outline:none;
+  }
+  
+  option{
+    text-align: left;
+  }
+  

@@ -1,0 +1,33 @@
+//VARS
+$primary: #224d3c;
+$text: #173529;
+$background: #e1e1e1;
+$lightBG: #f0f0f0;
+
+//EXTENSIONS
+
+%flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+%flex-column-reverse{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+%center-center{
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-around-center{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin size($property){
+    width: $property;
+    height: $property;
+}

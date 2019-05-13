@@ -1,0 +1,15 @@
+@import '../../Vars';
+
+.Welcome {
+    @extend %flex-column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background:rgb(225,225,225);
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 10vh 16px 0;
+    color: $text;
+}
+

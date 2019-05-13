@@ -1,0 +1,73 @@
+@import '../../Vars';
+
+.Fretboard{
+    margin-top:11vh;
+    min-width: 550px;
+    box-sizing: border-box;
+    @extend %flex-column;
+    justify-content: space-between;
+    display: flex;
+    padding: 16px;
+    border: 1px solid #173529;
+    background:rgb(240,240,240);
+    box-shadow:0 0 1px 1px gray;
+    color: #173529;
+}
+
+@media(min-width: 1024px){
+    .Fretboard h3, .Fretboard select{
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+.Strings{
+    @extend %flex-column-reverse;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.String-Container{
+    display: flex;
+
+}
+
+.String-Container {
+    select{
+    font-size: 10px;
+}
+}
+
+.Scale{
+    margin: 35px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 1%;
+    margin: 5% 0 0;
+}
+
+.Selectors{
+    margin: 0 0 5%;
+    @extend %flex-around-center;
+}
+
+@media (max-height: 320px){
+    .Fretboard{
+        margin-top: 10%;
+    }
+}
+
+.Selectors {
+    select{
+    border-width: 0px 0px 2px;
+}
+}
+
+.Selector{
+    @extend %flex-around-center;
+}
