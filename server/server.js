@@ -34,7 +34,7 @@ app.delete('/auth/logout', authCtrl.logout)
 
 
 //TUNING API
-// app.get('/api/tunings/:id')
+//app.get('/api/user-info',apiCtrl)
 // app.post('/api/tunings')
 // app.put('/api/tunings')
 // app.delete('/api/tunings/:id')

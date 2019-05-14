@@ -14,8 +14,8 @@ function Fretboard() {
   const [tuning, dispatch] = useReducer(tuningReducer, initialTuning);
   const [rootNote, setRootNote] = useState("A");
   const [scale, setScale] = useState("Major");
-  const [numOfStrings, setStrings] = useState("8");
-  const [numOfFrets, setFrets] = useState("24");
+  const [numOfStrings, setStrings] = useState("6");
+  const [numOfFrets, setFrets] = useState("22");
   const [coordinates, setCoords] = useState(getCoords(rootNote,tuning,scale));
 
 
