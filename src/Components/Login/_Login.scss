@@ -5,9 +5,9 @@
     @include size(250px);
     align-items: center;
     position: absolute;
-    
-    right: 0;
+    transition: all .15s ease-out;
     padding: none;
+    right: 0;
     top: 10vh;
     background: $primary;
     border: solid 2px $text;
@@ -59,3 +59,4 @@
         border-color: orange;
     }
 }
+

@@ -1,4 +1,6 @@
 import { allNotes, scales } from './constants'
+import axios from 'axios';
+// import axios from 'axios'
 
 export function tuningReducer(tuning, action) {
     switch (action.type) {
@@ -58,3 +60,19 @@ export function tuningReducer(tuning, action) {
     });
     return coordinates;
   };
+
+  export async function loginReg (action,email,password,getError){
+    if(!email && !password){
+      getError('Please fill out email AND password fields')
+      return;
+    }
+    console.log(email,password)
+    if(email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+      axios.post(`/auth/${action}`,{email,password})
+      .then(res => console.log(res.data))
+      .catch(err => getError(err.response.data))
+      getError("")
+    }else {
+      getError("Invalid email")
+    }
+  }
