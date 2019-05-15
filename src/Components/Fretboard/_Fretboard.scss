@@ -1,7 +1,7 @@
 @import '../../Vars';
 
 .Fretboard{
-    margin-top:11vh;
+    margin: auto;
     min-width: 550px;
     box-sizing: border-box;
     @extend %flex-column;
@@ -12,11 +12,23 @@
     background:rgb(240,240,240);
     box-shadow:0 0 1px 1px gray;
     color: #173529;
+    transition: all .1s;
 }
 
 @media(min-width: 1024px){
     .Fretboard h3, .Fretboard select{
         font-size: 1rem;
+    }
+}
+
+@media(max-width:1024px){
+    .Fretboard{
+        margin-top: 35vh;
+    }
+    .Scale{
+        h3{
+            font-size: .75rem;
+        }
     }
 }
 
@@ -36,11 +48,11 @@
 
 }
 
-.String-Container {
-    select{
-    font-size: 10px;
-}
-}
+// .String-Container {
+//     select:hover, select:focus{
+//         background: $background;
+//     }
+// }
 
 .Scale{
     margin: 35px 0 0;
@@ -56,11 +68,7 @@
     @extend %flex-around-center;
 }
 
-@media (max-height: 320px){
-    .Fretboard{
-        margin-top: 10%;
-    }
-}
+
 
 .Selectors {
     select{
@@ -71,3 +79,28 @@
 .Selector{
     @extend %flex-around-center;
 }
+
+.Scale-Note{
+    @extend %flex-column;
+    @extend %center-center;
+    user-select: none; 
+    text-align: center;         
+    cursor: pointer;
+    transition: all .15s;
+    @include size(1.75rem);
+    border-radius: 50%;
+    border: solid 2px $text ;
+    h3{
+        font-size: 1rem;
+    }
+}
+
+.Selected-Note{
+    transform: scale(1.5);
+    background: orange;
+}
+
+// .Scale-Note:hover{
+//     transform: scale(1.25);
+//     color: orange;
+// }

@@ -51,12 +51,13 @@ button {
     text-align: center;
     text-align-last: center;
   }
-  
-  select:focus{
-      outline:none;
-  }
+
+  select:hover, select:focus{
+    border-color: lighten($text,25%);
+    color: lighten($text,25%);
+}
   
   option{
-    text-align: left;
+    text-align: center;
   }
   

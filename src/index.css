@@ -3,6 +3,10 @@
 * {
   font-family: "Prompt", sans-serif;
   margin: 0;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;
+  outline:none;
 }
 
 body {
