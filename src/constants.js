@@ -126,3 +126,5 @@ export const initialTuning = {
     7: "A",
     8: "A"
   };
+
+  export const notLoggedIn = ['Login to Save Presets']

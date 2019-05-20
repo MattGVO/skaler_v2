@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Login from "../Login/Login";
 import { connect } from "react-redux";
 import axios from 'axios'
@@ -6,7 +6,17 @@ import { updateUser } from "../../ducks/reducer";
 
 function Header({ userId, email, updateUser }) {
   const [showLogin, toggleLogin] = useState(false);
-  console.log("userId, email:", userId, email);
+    console.log("userId, email:", userId, email);
+
+
+  useEffect(()=>{
+    const user = async () =>{
+      let res = await axios.get('/api/user-info')
+      console.log(res.data)
+      updateUser(res.data)
+    }
+    user()
+  },[])
 
   return (
     <div className="Header">
@@ -15,7 +25,7 @@ function Header({ userId, email, updateUser }) {
         <button onClick={ async()=>{
             console.log('run')
             await axios.delete('/auth/logout')
-            updateUser({id: null, email:""})
+            updateUser({userId: null, email:""})
         }}>
             Logout
         </button>

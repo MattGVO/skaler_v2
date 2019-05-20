@@ -5,12 +5,15 @@ import {
   noteNames,
   scaleNames,
   stringNums,
-  fretNums
+  fretNums,
+  notLoggedIn
 } from "../../constants";
 import { tuningReducer, getCoords } from "../../utils";
 import String from "../String/String";
+import { connect } from 'react-redux';
 
-function Fretboard() {
+
+function Fretboard({userId,userTunings}) {
   const [tuning, dispatch] = useReducer(tuningReducer, initialTuning);
   const [rootNote, setRootNote] = useState("C");
   const [scale, setScale] = useState("Major");
@@ -18,10 +21,26 @@ function Fretboard() {
   const [numOfFrets, setFrets] = useState("22");
   const [coordinates, setCoords] = useState(getCoords(rootNote, tuning, scale));
   const [selectedNote, selectNote] = useState("");
+  const [selectedTuning, selectTuning] = useState("")
 
+  
   useEffect(() => {
     setCoords(getCoords(rootNote, tuning, scale));
   }, [scale, rootNote, tuning]);
+  
+  useEffect(() =>{
+    let newTuning ={}
+    selectedTuning ?
+      userTunings
+      .filter(val => (
+        val.tuning_name === selectedTuning)
+      )[0].notes
+      .split(",").forEach((el,i) => {
+        newTuning[i +1] = el
+      }) : newTuning = {...initialTuning}
+    dispatch({type: "SELECT_TUNING", payload: newTuning})
+  },[selectedTuning])
+  
 
   return (
     <div className="Fretboard">
@@ -43,6 +62,13 @@ function Fretboard() {
           <h3># of Frets:</h3>
           <Dropdown item={numOfFrets} items={fretNums} onChange={setFrets} />
         </div>
+      </div>
+
+      <div className="User-Selectors">
+        <Dropdown disabled={!userId && true} tuning={!userId && true} onChange={selectTuning} items={userId?  userTunings.map(val => val.tuning_name): notLoggedIn}/>
+        <button className={userId ? "User-Button" : "Disabled"}>Save</button>
+        <button className={userId ? "User-Button" : "Disabled"}>Edit</button>
+        <button className={userId ? "User-Button" : "Disabled"}>Delete</button>
       </div>
 
       <div className="Strings">
@@ -88,4 +114,9 @@ function Fretboard() {
   );
 }
 
-export default Fretboard;
+const mapStateToProps = (state) =>{
+  return state
+}
+
+
+export default connect(mapStateToProps)(Fretboard);

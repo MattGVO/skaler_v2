@@ -64,7 +64,7 @@
 }
 
 .Selectors{
-    margin: 0 0 5%;
+    // margin: 0 0 5%;
     @extend %flex-around-center;
 }
 
@@ -100,7 +100,41 @@
     background: orange;
 }
 
-// .Scale-Note:hover{
-//     transform: scale(1.25);
-//     color: orange;
-// }
+.Disabled{
+    border-width: 1px;
+    cursor: default;
+    border-color: darken($background, 25%);
+    color: darken($background, 50%);
+    background: $background;
+    box-shadow: inset 0 1px 5px grey;
+}
+
+.Disabled:hover{
+    cursor: default;
+    border-color: darken($background, 25%);
+    color: darken($background, 50%);
+    background: $background;
+}
+
+
+.User-Button{
+    border-width: 1px;
+    border-color: $primary;
+    color: $primary;
+}
+
+.User-Button:hover{
+    border-color: lighten($text,25%);
+    color: lighten($text,25%);
+}
+
+.User-Button:active{
+    background: orange;
+    border-color: orange;
+    color: $background;
+}
+
+.User-Selectors{
+     margin: 0 0 5%;
+    @extend %flex-around-center;
+}

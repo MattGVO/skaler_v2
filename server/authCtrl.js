@@ -15,7 +15,7 @@ module.exports = {
       let hash = bcrypt.hashSync(password, salt);
       let [registeredUser] = await db.auth.register({ email, hash });
       console.log("registeredUser:", registeredUser);
-      req.session.user = registeredUser;
+      req.session.user = {...registeredUser, userTunings:[]};
       console.log("req.session.user:", req.session.user);
       res.status(200).send(req.session.user);
     }
@@ -33,7 +33,10 @@ module.exports = {
         if(authenticated){
             let [loggedInUser] = await db.auth.login({email})
             console.log('loggedInUser:',loggedInUser);
-            req.session.user = loggedInUser;
+            let {id} = loggedInUser
+            let userTunings = await db.tunings.get_all_tunings({id})
+            console.log('userTunings:',userTunings);
+            req.session.user = {...loggedInUser, userTunings};
             console.log("req.session.user:", req.session.user);
             res.status(200).send(req.session.user);
         } else {

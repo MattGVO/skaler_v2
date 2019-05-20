@@ -20,6 +20,8 @@ export function tuningReducer(tuning, action) {
       return { ...tuning, 7: action.payload };
     case 8:
       return { ...tuning, 8: action.payload };
+    case "SELECT_TUNING":
+      return {...action.payload}
     default:
       throw new Error();
   }
@@ -82,6 +84,7 @@ export async function loginReg(
     await axios
       .post(`/auth/${action}`, { email, password })
       .then(res => {
+        console.log(res.data)
         updateUser(res.data);
       })
       .catch(err => getError(err.response.data));

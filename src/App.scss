@@ -60,4 +60,12 @@ button {
   option{
     text-align: center;
   }
+
+  select:disabled{
+    cursor: default;
+    border-color: darken($background, 25%);
+    color: darken($background, 50%);
+    background: $background;
+    box-shadow: inset 0 1px 5px grey;
+  }
   
