@@ -7,7 +7,6 @@ const initialState = {
 const UPDATE_USER = "UPDATE_USER"
 
 export function updateUser(userInfo){
-    console.log(userInfo)
     return {
         type: UPDATE_USER,
         payload: userInfo

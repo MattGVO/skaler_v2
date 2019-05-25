@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginReg } from "../../utils";
+import { loginReg } from "../../Utils/auth";
 import { connect } from "react-redux";
 import { updateUser } from "../../ducks/reducer";
 

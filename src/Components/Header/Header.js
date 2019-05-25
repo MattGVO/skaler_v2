@@ -4,15 +4,13 @@ import { connect } from "react-redux";
 import axios from 'axios'
 import { updateUser } from "../../ducks/reducer";
 
-function Header({ userId, email, updateUser }) {
+function Header({ userId, updateUser }) {
   const [showLogin, toggleLogin] = useState(false);
-    console.log("userId, email:", userId, email);
 
 
   useEffect(()=>{
     const user = async () =>{
       let res = await axios.get('/api/user-info')
-      console.log(res.data)
       updateUser(res.data)
     }
     user()
@@ -23,7 +21,6 @@ function Header({ userId, email, updateUser }) {
       <h1>SKALER</h1>
       {userId ? (
         <button onClick={ async()=>{
-            console.log('run')
             await axios.delete('/auth/logout')
             updateUser({userId: null, email:""})
         }}>

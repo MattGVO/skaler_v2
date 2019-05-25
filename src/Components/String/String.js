@@ -1,5 +1,4 @@
 import React from "react";
-import Note from "../Note/Note";
 
 function String({ numOfFrets, index, coordinates, selectNote, selectedNote }) {
   const noteCoords = coordinates[index].notes;

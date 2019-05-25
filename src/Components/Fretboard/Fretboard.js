@@ -8,7 +8,8 @@ import {
   fretNums,
   notLoggedIn
 } from "../../constants";
-import { tuningReducer, getCoords } from "../../utils";
+import { saveTuning } from '../../Utils/tuning'
+import { tuningReducer, getCoords } from "../../Utils/fret";
 import String from "../String/String";
 import { connect } from 'react-redux';
 
@@ -22,6 +23,7 @@ function Fretboard({userId,userTunings}) {
   const [coordinates, setCoords] = useState(getCoords(rootNote, tuning, scale));
   const [selectedNote, selectNote] = useState("");
   const [selectedTuning, selectTuning] = useState("")
+  const [saveBool,toggleSave] =useState(false)
 
   
   useEffect(() => {
@@ -39,7 +41,7 @@ function Fretboard({userId,userTunings}) {
         newTuning[i +1] = el
       }) : newTuning = {...initialTuning}
     dispatch({type: "SELECT_TUNING", payload: newTuning})
-  },[selectedTuning])
+  },[selectedTuning,userTunings]);
   
 
   return (
@@ -63,13 +65,18 @@ function Fretboard({userId,userTunings}) {
           <Dropdown item={numOfFrets} items={fretNums} onChange={setFrets} />
         </div>
       </div>
-
+      {userId? 
       <div className="User-Selectors">
-        <Dropdown disabled={!userId && true} tuning={!userId && true} onChange={selectTuning} items={userId?  userTunings.map(val => val.tuning_name): notLoggedIn}/>
-        <button className={userId ? "User-Button" : "Disabled"}>Save</button>
+        <Dropdown tuning={true} onChange={selectTuning} items={userId?  userTunings.map(val => val.tuning_name): notLoggedIn}/>
+        <button className={userId ? "User-Button" : "Disabled"} onClick={() => saveTuning(tuning)}>Save</button>
         <button className={userId ? "User-Button" : "Disabled"}>Edit</button>
         <button className={userId ? "User-Button" : "Disabled"}>Delete</button>
+      </div>:
+      <div className="Not-Logged-In">
+        <h3>Login To Save Custom Tunings</h3>
       </div>
+    }
+      
 
       <div className="Strings">
         {Array.apply(null, { length: +numOfStrings }).map((val, i) => {
