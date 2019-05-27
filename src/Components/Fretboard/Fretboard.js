@@ -8,13 +8,12 @@ import {
   fretNums,
   notLoggedIn
 } from "../../constants";
-import { saveTuning } from '../../Utils/tuning'
+import { saveTuning } from "../../Utils/tuning";
 import { tuningReducer, getCoords } from "../../Utils/fret";
 import String from "../String/String";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-
-function Fretboard({userId,userTunings}) {
+function Fretboard({ userId, userTunings }) {
   const [tuning, dispatch] = useReducer(tuningReducer, initialTuning);
   const [rootNote, setRootNote] = useState("C");
   const [scale, setScale] = useState("Major");
@@ -22,27 +21,26 @@ function Fretboard({userId,userTunings}) {
   const [numOfFrets, setFrets] = useState("22");
   const [coordinates, setCoords] = useState(getCoords(rootNote, tuning, scale));
   const [selectedNote, selectNote] = useState("");
-  const [selectedTuning, selectTuning] = useState("")
-  const [saveBool,toggleSave] =useState(false)
+  const [selectedTuning, selectTuning] = useState("");
+  const [saveBool, toggleSave] = useState(false);
+  const [newTuning, setNewTuning] = useState("");
 
-  
   useEffect(() => {
     setCoords(getCoords(rootNote, tuning, scale));
   }, [scale, rootNote, tuning]);
-  
-  useEffect(() =>{
-    let newTuning ={}
-    selectedTuning ?
-      userTunings
-      .filter(val => (
-        val.tuning_name === selectedTuning)
-      )[0].notes
-      .split(",").forEach((el,i) => {
-        newTuning[i +1] = el
-      }) : newTuning = {...initialTuning}
-    dispatch({type: "SELECT_TUNING", payload: newTuning})
-  },[selectedTuning,userTunings]);
-  
+
+  useEffect(() => {
+    let newTuning = {};
+    selectedTuning
+      ? userTunings
+          .filter(val => val.tuning_name === selectedTuning)[0]
+          .notes.split(",")
+          .forEach((el, i) => {
+            newTuning[i + 1] = el;
+          })
+      : (newTuning = { ...initialTuning });
+    dispatch({ type: "SELECT_TUNING", payload: newTuning });
+  }, [selectedTuning, userTunings]);
 
   return (
     <div className="Fretboard">
@@ -65,18 +63,62 @@ function Fretboard({userId,userTunings}) {
           <Dropdown item={numOfFrets} items={fretNums} onChange={setFrets} />
         </div>
       </div>
-      {userId? 
-      <div className="User-Selectors">
-        <Dropdown tuning={true} onChange={selectTuning} items={userId?  userTunings.map(val => val.tuning_name): notLoggedIn}/>
-        <button className={userId ? "User-Button" : "Disabled"} onClick={() => saveTuning(tuning)}>Save</button>
-        <button className={userId ? "User-Button" : "Disabled"}>Edit</button>
-        <button className={userId ? "User-Button" : "Disabled"}>Delete</button>
-      </div>:
-      <div className="Not-Logged-In">
-        <h3>Login To Save Custom Tunings</h3>
-      </div>
-    }
+      {userId ? (
+        <div className="User-Selectors">
+          {saveBool ? (
+            <input
+              type="text"
+              placeholder="Tuning Name..."
+              onChange={e => setNewTuning(e.target.value)}
+            />
+          ) : (
+            <Dropdown
+              tuning={true}
+              onChange={selectTuning}
+              items={
+                userId ? userTunings.map(val => val.tuning_name) : notLoggedIn
+              }
+            />
+          )}
+        
+          {saveBool &&
+          <div style={{display:"flex",alignItems:"center"}}>
       
+            {Array.apply(null, { length: +numOfStrings }).map((val, i) => (
+              <Dropdown
+                item={tuning[i + 1]}
+                items={noteNames}
+                onChange={e => dispatch({ type: i + 1, payload: e })}
+              />
+            ))}
+            <button className="User-Button" onClick={() => {saveTuning(newTuning,tuning); toggleSave(!saveBool); setNewTuning("")}}>Save</button>
+            <button className="User-Button" onClick={() => {setNewTuning("");toggleSave(!saveBool)}}>Cancel</button>
+          </div>
+            }
+          {!saveBool && (
+            <button
+              className={userId ? "User-Button" : "Disabled"}
+              onClick={() => toggleSave(!saveBool)}
+            >
+              Save
+            </button>
+          )}
+          {!saveBool && (
+            <button className={userId ? "User-Button" : "Disabled"}>
+              Edit
+            </button>
+          )}
+          {!saveBool && (
+            <button className={userId ? "User-Button" : "Disabled"}>
+              Delete
+            </button>
+          )}
+        </div>
+      ) : (
+        <div className="Not-Logged-In">
+          <h3>Login To Save Custom Tunings</h3>
+        </div>
+      )}
 
       <div className="Strings">
         {Array.apply(null, { length: +numOfStrings }).map((val, i) => {
@@ -121,9 +163,8 @@ function Fretboard({userId,userTunings}) {
   );
 }
 
-const mapStateToProps = (state) =>{
-  return state
-}
-
+const mapStateToProps = state => {
+  return state;
+};
 
 export default connect(mapStateToProps)(Fretboard);

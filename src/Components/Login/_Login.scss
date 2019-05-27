@@ -12,7 +12,7 @@
     background: $primary;
     border: solid 2px $text;
     z-index: 0;
-    box-shadow: -1px 3px 1px gray;
+    box-shadow: -1px 3px 1.5px .25px rgba(128, 128, 128,.8);
     button{
         height: 100%;
         border-color: $text;

@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export function saveTuning(tuning){
-    axios.post('/api/tunings',{tuning})
+export function saveTuning(tuningName, tuning){
+    axios.post('/api/tunings',{tuningName, tuning})
 }
