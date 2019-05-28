@@ -1,10 +1,11 @@
-@import './Components/Fretboard/Fretboard.scss';
+@import './Views/Fretboard/Fretboard.scss';
 @import './Components/Header/Header.scss';
 @import './Components/Login/Login';
 @import './Components/String/String.scss';
 @import './Components/UserSelect/UserSelect.scss';
 @import './Components/Welcome/Welcome';
-@import './Views/Home/Home';
+@import './Views/Main/Main';
+@import './Views/Landing/Landing';
 
 main{
     display: flex;

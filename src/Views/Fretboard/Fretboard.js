@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
-import Dropdown from "../Dropdown/Dropdown";
+import Dropdown from "../../Components/Dropdown/Dropdown";
 import {
   initialTuning,
   noteNames,
@@ -10,10 +10,10 @@ import {
 } from "../../constants";
 import { saveTuning, updateTuning, deleteTuning } from "../../Utils/tuning";
 import { tuningReducer, getCoords } from "../../Utils/fret";
-import String from "../String/String";
+import String from "../../Components/String/String";
 import { connect } from "react-redux";
 import { updateUser } from "../../ducks/reducer";
-import UserSelect from "../UserSelect/UserSelect";
+import UserSelect from "../../Components/UserSelect/UserSelect";
 
 function Fretboard({ userId, userTunings, updateUser }) {
   const [tuning, dispatch] = useReducer(tuningReducer, initialTuning);

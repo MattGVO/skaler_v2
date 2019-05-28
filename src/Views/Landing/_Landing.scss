@@ -1,0 +1,18 @@
+.Landing {
+    margin: auto;
+    min-width: 550px;
+    box-sizing: border-box;
+    @extend %flex-column;
+    align-items: center;
+    display: flex;
+    padding: 16px;
+    border: 1px solid #173529;
+    background:rgb(240,240,240);
+    box-shadow:0 0 1px 1px gray;
+    color: #173529;
+    transition: width .25s;
+    font-size: 1.5rem;
+    h3{
+        margin-top: 2.5%;
+    }
+}

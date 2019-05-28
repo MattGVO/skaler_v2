@@ -1,10 +1,16 @@
 import React from 'react';
-import Fretboard from '../../Components/Fretboard/Fretboard';
+import Fretboard from '../Fretboard/Fretboard';
+import Landing from '../Landing/Landing';
+import { Switch, Route } from 'react-router-dom'
 
 function Home () {
     return (
         <div className="Home">
-            <Fretboard/>
+            <Switch>
+                <Route exact path ="/" component={Landing}/>
+                <Route path="/fretboard" component={Fretboard}/>
+            </Switch>
+            {/* <Fretboard/> */}
             <div className="Flip">
                 <h1>This app is designed for a wider screen.</h1>
                 <h1>Rotate your device to the side and enjoy!</h1>
