@@ -3,6 +3,7 @@ import Login from "../Login/Login";
 import { connect } from "react-redux";
 import axios from "axios";
 import { updateUser } from "../../ducks/reducer";
+import { Link } from 'react-router-dom';
 import Logo from "../../LightLogo.svg";
 
 function Header({ userId, updateUser }) {
@@ -18,10 +19,10 @@ function Header({ userId, updateUser }) {
 
   return (
     <div className="Header">
-      <div style={{display: "flex", alignItems: "center"}}>
+      <Link to="/" style={{display: "flex", alignItems: "center"}}>
         <h1>SKALER</h1>
         <img src={Logo} style={{height: "1.75rem"}}/>
-      </div>
+      </Link>
       {userId ? (
         <button
           onClick={async () => {
