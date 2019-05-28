@@ -27,7 +27,6 @@ app.use(session({
 }))
 
 //AUTH API
-
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register',authCtrl.register)
 app.delete('/auth/logout', authCtrl.logout)
@@ -36,8 +35,8 @@ app.delete('/auth/logout', authCtrl.logout)
 //TUNING API
 app.get('/api/user-info',apiCtrl.userInfo)
 app.post('/api/tunings', apiCtrl.saveTuning)
-// app.put('/api/tunings')
-// app.delete('/api/tunings/:id')
+app.put('/api/tunings',apiCtrl.updateTuning)
+app.delete('/api/tunings/:name',apiCtrl.deleteTuning)
 
 // app.get('*', (req, res)=>{
 //     res.sendFile(path.join(__dirname, '../build/index.html'));

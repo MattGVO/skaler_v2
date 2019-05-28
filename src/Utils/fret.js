@@ -2,6 +2,7 @@ import { allNotes, scales } from "../constants";
 // import axios from 'axios'
 
 export function tuningReducer(tuning, action) {
+  console.log(action.type)
   switch (action.type) {
     case 1:
       return { ...tuning, 1: action.payload };

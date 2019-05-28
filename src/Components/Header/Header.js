@@ -14,7 +14,7 @@ function Header({ userId, updateUser }) {
       updateUser(res.data)
     }
     user()
-  },[])
+  })
 
   return (
     <div className="Header">

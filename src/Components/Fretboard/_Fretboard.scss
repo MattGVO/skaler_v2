@@ -148,11 +148,11 @@
     }
     input:focus {
         border: solid 1px orange;
-        color: orange;
+    
     }
-    input:focus::placeholder{
-        color: orange;
-    }
+    // input:focus::placeholder{
+    //     color: orange;
+    // }
 }
 
 .Not-Logged-In{
