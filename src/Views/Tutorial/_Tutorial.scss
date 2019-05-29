@@ -1,0 +1,75 @@
+.Tutorial {
+    margin: auto;
+    min-width: 750px;
+    box-sizing: border-box;
+    @extend %flex-column;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 16px;
+    border: 1px solid #173529;
+    background:rgb(240,240,240);
+    box-shadow:0 0 1px 1px gray;
+    color: #173529;
+    transition: width .25s;
+    font-size: 1.5rem;
+    max-width: 50vw;
+    h6{
+        margin: .5% 0;
+        // text-align: center
+    }
+    a{
+        transition: all .1s;
+        color: lighten($text,15%);
+    }
+    a:hover{
+        
+        color: orange;
+    }
+    p{
+        font-size: .75rem;
+    }
+    .B-S{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: -25%;
+        p {
+            margin-right: 7px;
+        }
+    }
+    .F-N{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: -15%;
+        bottom: -30%;
+        p {
+            margin-right: 7px;
+        }
+    }
+}
+
+
+
+.Step{
+    @extend %flex-column;
+    align-items: center;
+    .Fret-Tut{
+        margin-top: 5.5%;
+    }
+    .Strings{
+        position: relative;
+    }
+}
+
+.String-Note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px $text;
+    @include size(2rem);
+    // width: 18px;
+    // height: 18px;
+    position: relative;
+  }

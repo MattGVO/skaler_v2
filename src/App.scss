@@ -6,6 +6,7 @@
 @import './Components/Welcome/Welcome';
 @import './Views/Main/Main';
 @import './Views/Landing/Landing';
+@import './Views/Tutorial/Tutorial';
 
 main{
     display: flex;
@@ -55,8 +56,8 @@ button {
   }
 
   select:hover, select:focus{
-    border-color: lighten($text,25%);
-    color: lighten($text,25%);
+    border-color: lighten($text,15%);
+    color: lighten($text,15%);
 }
   
   option{

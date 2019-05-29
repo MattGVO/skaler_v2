@@ -9,7 +9,7 @@ function Landing() {
       <img src={Logo} alt="Logo" style={{height: "10rem"}}/>
       <h3>Music For The Visual Learner</h3>
       <div>
-          <Link to="/tutorial">
+          <Link to="/tutorial/welcome">
             <button className="User-Button">Tutorial</button>
           </Link>
         <Link to="/fretboard">
