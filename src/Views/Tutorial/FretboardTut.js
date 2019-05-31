@@ -14,6 +14,9 @@ function FretboardTut() {
   //
   return (
     <div className="Step F-T">
+       <Link to="/tutorial/welcome">
+        <i class="fas fa-arrow-left"></i>
+      </Link>
       <h1>The Fretboard</h1>
       <div className="Strings">
         {Array.apply(null, { length: +numOfStrings }).map((val, i) => {
@@ -52,8 +55,7 @@ function FretboardTut() {
             tablature
           </a>{" "}
           notation. The dots on the fret boxes represent a note that can be
-          played on their numbered fret. The 0 fret number represents an open
-          string (no frets being pressed down)
+          played on their numbered fret. The thinner boxes represent an open string (no frets pressed down).
         </h6>
       </div>
       <div>

@@ -1,7 +1,7 @@
 @import '../../Vars';
 
 .Fretboard{
-    margin: auto;
+    // margin: auto;
     min-width: 550px;
     box-sizing: border-box;
     @extend %flex-column;
@@ -23,7 +23,8 @@
 
 @media(max-width:1024px){
     .Fretboard{
-        margin-top: 35vh;
+        // margin: auto;
+        // height: 50vh;
     }
     .Scale{
         h3{

@@ -48,11 +48,26 @@
             margin-right: 7px;
         }
     }
+    .Big {
+        width: 400px;
+        height: 128px;
+        font-size: 2.5rem;
+    }
+    .fa-arrow-left{
+        position: absolute;
+        left: 5px;
+        color: $text;
+        transition: all .1s;
+    }
+    .fa-arrow-left:hover{
+        color: orange;
+    }
 }
 
 
 
 .Step{
+    position: relative;
     @extend %flex-column;
     align-items: center;
     .Fret-Tut{
@@ -60,6 +75,9 @@
     }
     .Strings{
         position: relative;
+    }
+    img {
+        width: 50%;
     }
 }
 

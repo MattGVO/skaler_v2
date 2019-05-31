@@ -3,9 +3,9 @@
 .Home {
     @extend %flex-column;
     @extend %center-center;
-    padding: 12vh 0;
-    box-sizing: border-box;
-    min-height: 100vh;
+    margin-top: 12vh;
+    box-sizing: content-box;
+    // height: 80vh;
     width: 100vw;
 }
 

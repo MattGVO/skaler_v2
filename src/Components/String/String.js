@@ -2,10 +2,20 @@ import React from "react";
 
 function String({ numOfFrets, index, coordinates, selectNote, selectedNote }) {
   const noteCoords = coordinates[index].notes;
+  const [openArray] = noteCoords.filter(val => val.coordOne === 0);
   return (
     <div className="String">
       {Array.apply(null, { length: +numOfFrets + 1 }).map((val, i) => {
-        return (
+        return i === 0 ? (
+          <div
+            style={
+              openArray && openArray.note == selectedNote ? { background: "orange" } : null
+            }
+            className={!openArray ? "Open" : "Open Open-Note"}
+            onMouseEnter={() => openArray && selectNote(openArray.note)}
+            onMouseLeave={() => openArray && selectNote("")}
+          />
+        ) : (
           <div key={i} className="Fret">
             {noteCoords.map(
               (val, j) =>

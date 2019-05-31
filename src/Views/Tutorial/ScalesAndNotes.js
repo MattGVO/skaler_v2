@@ -32,6 +32,9 @@ function ScalesAndNotes() {
 
   return (
     <div className="Step">
+       <Link to="/tutorial/fretboard">
+        <i class="fas fa-arrow-left"></i>
+      </Link>
       <h1>Scales & Notes</h1>
       <h6>
         Below is a C Major Scale on a fretboard. As a note is selected it will
@@ -85,7 +88,7 @@ function ScalesAndNotes() {
         <Link to="/fretboard">
           <button className="User-Button">Enter Site</button>
         </Link>
-        <Link to="/tutorial/step1">
+        <Link to="/tutorial/selectors">
           <button className="User-Button">Next</button>
         </Link>
       </div>
