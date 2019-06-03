@@ -18,13 +18,19 @@ massive(CONNECTION_STRING).then(db =>{
     app.set('db',db);
     console.log('DATABASE CONNECTED');
 })
-// app.use( express.static( `${__dirname}/../build` ) );
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(express.json());
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
 }))
+
+//Send Files
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 //AUTH API
 app.post('/auth/login', authCtrl.login)
