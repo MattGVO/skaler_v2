@@ -6,7 +6,7 @@ function Landing() {
   return (
     <div className="Landing">
       <h1>SKALER</h1>
-      <img src={Logo} alt="Logo" style={{height: "10rem"}}/>
+      <img src={Logo} alt="Logo" />
       <h3>Music For The Visual Learner</h3>
       <div>
           <Link to="/tutorial/welcome">

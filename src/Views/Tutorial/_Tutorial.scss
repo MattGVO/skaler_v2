@@ -1,7 +1,7 @@
 .Tutorial {
     margin: auto;
-    min-width: 750px;
     box-sizing: border-box;
+    min-width: 720px;
     @extend %flex-column;
     justify-content: space-between;
     align-items: center;
@@ -91,3 +91,95 @@
     // height: 18px;
     position: relative;
   }
+
+ 
+@media (max-width: 800px){
+    .Tutorial{
+        min-width: 100px;
+        max-width: 500px;
+        h1{
+            font-size: 2rem;
+        }
+        h6{
+            font-size: .75rem;
+        }
+        .String-Note{
+            @include size(1rem);
+            font-size: 1rem;
+        }
+        .Open{
+            height: 1rem;
+            width: .5rem;
+        }
+        .Fret{
+            @include size(1rem);
+        }
+        .Dot{
+            @include size(.5rem);
+        }
+        p{
+            font-size: .5rem;
+        }
+        .B-S{
+            left: -35%;
+        }
+        .F-N{
+            left: -25%;
+        }
+        .Scale-Note{
+            @include size(1rem);
+            border-width: 1px;
+            h3{
+                font-size: .75rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 520px){
+    .Tutorial{
+        min-width: 100px;
+        max-width: 300px;
+        h1{
+            font-size: 1rem;
+        }
+        h6{
+            font-size: .5rem;
+        }
+        .String-Note{
+            @include size(1rem);
+            font-size: 1rem;
+        }
+        .Open{
+            height: 1rem;
+            width: .5rem;
+        }
+        .Fret{
+            @include size(1rem);
+        }
+        .Dot{
+            @include size(.5rem);
+        }
+        p{
+            font-size: .5rem;
+        }
+        .B-S{
+            display: none;
+        }
+        .F-N{
+            display: none;
+        }
+        .Scale-Note{
+            @include size(1rem);
+            border-width: 1px;
+            h3{
+                font-size: .75rem;
+            }
+        }
+        .Big {
+            width: 200px;
+            height: 128px;
+            font-size: 1.5rem;
+        }
+    }
+}
