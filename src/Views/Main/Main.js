@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import Tutorial from '../Tutorial/Tutorial';
 
 function Home () {
+  
     return (
         <div className="Home">
             <Switch>
@@ -12,16 +13,6 @@ function Home () {
                 <Route path="/fretboard" component={Fretboard}/>
                 <Route path="/tutorial" component={Tutorial}/>
             </Switch>
-            {/* <Fretboard/> */}
-            <div className="Flip">
-                <h1>This app is designed for a wider screen.</h1>
-                <h1>Rotate your device to the side and enjoy!</h1>
-                <div className="Flip-Demo">
-                    <i className="fas fa-mobile-alt"></i>
-                    <i className="fas fa-arrow-right"></i>
-                    <i className="Side fas fa-mobile-alt"></i>
-                </div>
-            </div>
         </div>
     );
 }

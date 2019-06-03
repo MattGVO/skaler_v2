@@ -1,8 +1,8 @@
 @import '../../Vars';
 
 .Fretboard{
-    // margin: auto;
-    min-width: 550px;
+    margin: auto;
+    // min-width: 550px;
     box-sizing: border-box;
     @extend %flex-column;
     justify-content: space-between;
@@ -13,6 +13,87 @@
     box-shadow:0 0 1px 1px gray;
     color: #173529;
     transition: width .25s;
+}
+@media (max-width: 940px){
+    .Fretboard{
+        padding: 5px;
+        width: 700px;
+        h3{
+            font-size: 1rem;
+        }
+        .Scale-Note{
+            @include size(1rem);
+            border-width: 1px;
+            h3{
+                font-size: .5rem;
+            }
+        }
+        .String-Container{
+            select {
+                @include size(1.625rem)
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+            .Fret{
+                @include size(1.5rem)
+            }
+            .Open{
+                height: 1.5rem;
+            }
+            .Dot{
+                @include size(.75rem) 
+            }
+        }
+        .User-Selectors{
+            height: 1rem;
+        }
+        .Scale{
+            margin-top: 1rem;
+        }
+    }
+}
+
+@media (max-width: 740px){
+    .Fretboard{
+        
+        width: 500px;
+        .Selectors select{
+            font-size: .5rem;
+        }
+        h3{
+            font-size: .5rem;
+        }
+        .Scale-Note{
+            @include size(1rem);
+            border-width: 1px;
+            h3{
+                font-size: .5rem;
+            }
+        }
+        .String-Container{
+            select {
+                @include size(1.121rem)
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+            .Fret{
+                @include size(1rem)
+            }
+            .Open{
+                height: 1rem;
+                width: .5rem;
+            }
+            .Dot{
+                @include size(.5rem) 
+            }
+        }
+        .User-Selectors{
+            height: 1rem;
+        }
+        .Scale{
+            margin-top: 1rem;
+        }
+    }
 }
 
 @media(min-width: 1024px){

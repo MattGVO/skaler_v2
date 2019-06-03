@@ -15,7 +15,7 @@ function FretboardTut() {
   return (
     <div className="Step F-T">
        <Link to="/tutorial/welcome">
-        <i class="fas fa-arrow-left"></i>
+        <i className="fas fa-arrow-left"></i>
       </Link>
       <h1>The Fretboard</h1>
       <div className="Strings">
